@@ -1,0 +1,210 @@
+
+
+
+Create a premium, modern, multilingual, fully responsive website for "Poojya Shri Amritananda Mahaswamiji – Gurudev Ashram, Balgaon". The website should support three languages: Kannada (ಕನ್ನಡ), Marathi (मराठी), and English. Users must be able to switch languages instantly using a language selector in the navigation bar. The website should automatically detect the user's browser language and allow manual switching without reloading the page.
+Technology Stack
+React.js (Vite)
+Tailwind CSS
+Framer Motion
+React Router
+React i18next (for multilingual support)
+React Icons
+Swiper.js
+AOS Animations
+SEO Optimized
+PWA Enabled
+Theme
+Create a luxury spiritual website using:
+White
+Saffron
+Gold
+Dark Green
+Light Cream
+Design should include:
+Glassmorphism
+Smooth animations
+Lotus patterns
+Mandala background
+Temple-inspired UI
+Soft glowing effects
+Premium typography
+Fonts:
+Cinzel (Headings)
+Poppins (English)
+Noto Sans Kannada
+Noto Sans Devanagari
+Navigation
+Sticky navigation with language selector.
+Menu:
+Home
+About Swamiji
+Biography
+Ashram
+Yoga
+World Records
+Events
+Gallery
+Contact
+Language Selector:
+🇮🇳 English
+🇮🇳 ಕನ್ನಡ
+🇮🇳 मराठी
+Hero Section
+Full-screen background image of Gurudev Ashram.
+Display:
+Poojya Shri Amritananda Mahaswamiji
+Subtitle:
+International Yogacharya
+Spiritual Guru
+Vice President of Jnana Yogashram
+Buttons:
+Learn More
+Visit Ashram
+Floating lotus animation.
+Parallax scrolling.
+About Swamiji
+Create a beautiful timeline.
+Include complete biography:
+Born on 1 June 1989
+Birthplace: Nandgaon, Athani Taluk, Belagavi District
+Religious upbringing from childhood
+Passion for Bhajans and Kirtans
+Joined Vijayapura Ashram
+Accepted Sannyasa on 6 June 2005
+Studied:
+Vachana Literature
+Patanjali Yoga Sutras
+Narada Bhakti Sutras
+Bhagavad Gita
+Upanishads
+Awarded "Pandit"
+Yoga training under Baba Ramdev
+Earned Yogacharya title
+Doctorate in Yoga (2016)
+International Yogacharya
+Conducts yoga and spiritual discourses in Kannada, Marathi, Hindi, and English
+Vice President of Jnana Yogashram
+The complete biography should be available in:
+English
+Kannada
+Marathi
+Ashram
+Display:
+Gurudev Ashram
+Balgaon
+Taluka Jath
+District Sangli
+Include:
+Daily Yoga
+Monthly Shivanubhava
+Satsang
+Annual Conferences
+Goshala
+Organic Farming
+Free Education
+Free Hostel
+Annadanam
+Beautiful image cards.
+World Records
+Animated cards:
+Limca Book of World Records
+Asian Book of World Records
+Marvelous Book of World Records
+High Range Book of World Records
+Animated counters.
+Yoga Section
+Explain Yoga.
+Benefits:
+Physical Health
+Mental Peace
+Spiritual Growth
+Stress Relief
+Daily Yoga Schedule.
+Online Registration button.
+Gallery
+Responsive gallery.
+Categories:
+Ashram
+Yoga Camps
+Spiritual Events
+Goshala
+Organic Farming
+Lightbox image viewer.
+Events
+Upcoming Events
+Past Events
+Event Cards
+Registration Button
+Contact
+Display:
+Gurudev Ashram
+Balgaon
+Taluka Jath
+District Sangli
+Maharashtra
+Phone:
++91 9513300771
+Include:
+Google Maps
+WhatsApp Button
+Contact Form
+Name
+Phone
+Email
+Message
+Footer
+Quick Links
+Social Media
+Language Switch
+Copyright
+Designed with Devotion
+Admin Panel
+Create a secure admin dashboard where the administrator can:
+Add new events
+Edit biography
+Upload gallery images
+Update Ashram information
+Add YouTube videos
+Publish announcements
+Manage all content separately in English, Kannada, and Marathi
+Upload PDF books, magazines, and newsletters
+Manage homepage banners
+View contact form submissions
+Extra Features
+Dark Mode
+Light Mode
+Scroll Animations
+Lazy Loading
+SEO Friendly
+Mobile Responsive
+Progressive Web App (PWA)
+Accessibility Support
+Fast Loading
+Back to Top Button
+Floating WhatsApp Button
+Social Sharing
+Search Function
+Sitemap
+Robots.txt
+Google Analytics Ready
+Content Management
+All text content must be stored in separate translation files:
+/locales/en/
+/locales/kn/
+/locales/mr/
+Use React i18next for language switching.
+The website should automatically translate menus and page content based on the selected language without refreshing the page.
+Final Requirement
+Generate a complete, production-ready website with:
+Clean folder structure
+Reusable React components
+Responsive design
+SEO optimization
+High performance
+Multilingual support (Kannada, Marathi, English)
+Easy content management
+Professional spiritual aesthetics
+Smooth animations
+Accessible UI
+Modern coding standards
+Deployment-ready project using Vite and Tailwind CSS.

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f4e8 0%, #fffdf8 100%);
+  color: #1f2937;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #07120a 0%, #122614 100%);
+  color: #f8f4e8;
+}
+
+section {
+  @apply scroll-mt-20;
+}
+
+.glass {
+  @apply backdrop-blur-xl bg-white/70 border border-white/30 shadow-xl shadow-amber-900/10;
+}
+
+body.dark .glass {
+  @apply bg-slate-900/70 border-slate-800/60 shadow-amber-500/10;
+}
+
+::selection {
+  @apply bg-amber-500/40;
+}

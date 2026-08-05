@@ -1,0 +1,140 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Swamiji",
+    "biography": "Biography",
+    "ashram": "yogashram",
+    "yoga": "Yoga",
+    "records": "World Records",
+    "events": "Events",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "site": {
+    "name": "Gurudev yogashram"
+  },
+  "hero": {
+    "badge": "Gurudev yogashram • Akalawadi",
+    "title": "Poojya Shri Amrutananda Mahaswamiji",
+    "subtitle": "International Yogacharya • Spiritual Guru • Vice President of Jnana Yogashram",
+    "learn": "Learn More",
+    "visit": "Visit yogashram"
+  },
+  "presence": {
+    "title": "Divine Presence",
+    "description": "A sanctuary of devotion, yoga, service, and spiritual awakening located in the serene landscape of Akalawadi",
+    "items": ["Meditation", "Bhajans", "Annadanam", "Yoga"]
+  },
+  "about": {
+    "heading": "About Swamiji",
+    "paragraph": "A compassionate spiritual guide, accomplished yogacharya, and visionary social reformer whose life continues to inspire thousands through devotion, scholarship, and selfless service.",
+    "timelineTitle": "A life dedicated to spirituality and service",
+    "timeline": [
+      "Born on 1 June 1989 in Nandgaon, Athani Taluk, Belagavi District",
+      "Raised in a deeply spiritual environment with devotion to bhajans and kirtans",
+      "Joined Vijayapura Ashram and embraced a disciplined spiritual path",
+      "Accepted Sannyasa on 6 June 2005",
+      "Studied Vachana literature, Patanjali Yoga Sutras, Narada Bhakti Sutras, Bhagavad Gita and Upanishads",
+      "Awarded the title 'Pandit' and trained in yoga under Baba Ramdev",
+      "Earned the title of Yogacharya and a doctorate in Yoga in 2016",
+      "Conducts yoga and spiritual discourses in Kannada, Marathi, Hindi and English"
+    ]
+  },
+  "biography": {
+    "title": "Biography",
+    "name": "Poojya Shri Amrutananda Mahaswamiji",
+    "paragraph1": "Born on 1 June 1989 at Nandgaon, Athani Taluk, Belagavi District, he grew up in a tradition rooted in devotion, music, and spiritual discipline.",
+    "paragraph2": "His lifelong passion for bhajans and kirtans, combined with focused study of Vachana literature, yoga sutras, bhakti texts, and the Gita, shaped his mission of service and awakening.",
+    "paragraph3": "He joined Vijayapura Ashram, accepted Sannyasa on 6 June 2005, and later earned the titles of Pandit and Yogacharya, followed by a doctorate in Yoga in 2016.",
+    "achievementsTitle": "Key Achievements",
+    "achievements": ["International Yogacharya", "Conducts discourses in Kannada, Marathi, Hindi and English", "Vice President of Jnana Yogashram", "Dedicated to yoga, social service and spiritual education"]
+  },
+  "ashram": {
+    "heading": "Gurudev yogashram",
+    "location": "Akalawadi, Taluka Jath, District Sangli",
+    "description": "A vital part of the ashram’s spiritual and service mission, combining devotion with community wellbeing.",
+    "items": [
+      "Daily Yoga",
+      "Monthly Shivanubhava",
+      "Satsang",
+      "Annual Conferences",
+      "Goshala",
+      "Organic Farming",
+      "Free Education",
+      "Free Hostel",
+      "Annadanam"
+    ]
+  },
+  "records": {
+    "heading": "World Records",
+    "title": "Recognitions and global honors",
+    "items": [
+      "Limca Book of World Records",
+      "Asian Book of World Records",
+      "Marvelous Book of World Records",
+      "High Range Book of World Records"
+    ]
+  },
+  "yoga": {
+    "sectionTitle": "Yoga",
+    "heading": "Yoga for Mind, Body and Soul",
+    "description": "A daily practice of yoga brings harmony, strength, and inner peace.",
+    "benefits": [
+
+      "Physical Health",
+      "Mental Peace",
+      "Spiritual Growth",
+      "Stress Relief"
+    ],
+    "schedule": "Daily schedule: Early morning meditation, asana, pranayama and satsang",
+    "onlineRegistration": "Online Registration",
+    "dailyPractice": "Daily Practice",
+    "dailyPracticeItems": ["Morning Meditation", "Asana Session", "Pranayama", "Evening Satsang"]
+  },
+  "gallery": {
+    "heading": "Gallery",
+    "title": "Moments of devotion and service",
+    "alt": "Yogashram gallery"
+  },
+  "events": {
+    "heading": "Upcoming and Past Events",
+    "title": "Upcoming and Past Events",
+    "description": "Join the yogashram community for devotion, practice and service.",
+    "register": "Register",
+    "item1Title": "Annual Spiritual Conference",
+    "item1Date": "12 Sep 2026",
+    "item1Type": "Upcoming",
+    "item2Title": "Shivanubhava Satsang",
+    "item2Date": "18 Aug 2026",
+    "item2Type": "Past"
+  },
+  "contact": {
+    "heading": "Contact",
+    "address": "Gurudev yogashram, Akalawadi, Taluka Jath, District Sangli, Maharashtra",
+    "phone": "9483104846",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "email": "basavrajshejale7@gmail.com",
+    "whatsapp": "WhatsApp",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "A haven of yoga, devotion and compassionate service in Akalawadi.",
+    "quickLinks": "Quick Links",
+    "social": "Social Media",
+    "languageSwitch": "Language Switch",
+    "socialLinks": {
+      "whatsapp": "WhatsApp",
+      "youtube": "YouTube",
+      "instagram": "Instagram"
+    },
+    "backToTop": "Back to top",
+    "copyright": "© 2026 Gurudev yogashram. Designed with Devotion."
+  }
+}

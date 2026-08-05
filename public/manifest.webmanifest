@@ -1,0 +1,15 @@
+{
+  "name": "Poojya Shri Amritananda Mahaswamiji - Gurudev Ashram",
+  "short_name": "Gurudev Ashram",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f4e8",
+  "theme_color": "#f4b942",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=192&q=80",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
