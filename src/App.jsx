@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { FaMoon, FaSun, FaWhatsapp, FaArrowUp, FaLeaf, FaPray, FaHeart } from 'react-icons/fa';
+import { FaMoon, FaSun, FaWhatsapp, FaArrowUp, FaLeaf, FaPray, FaHeart, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -40,13 +40,13 @@ function App() {
   const { t, i18n } = useTranslation();
   const [darkMode, setDarkMode] = useState(false);
   const [showTop, setShowTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
-  const [adminEmail] = useState('basavrajshejale7@gmail.com');
-  const [adminMobile] = useState('9483104846');
   const [authEmail, setAuthEmail] = useState('');
-  const [authMobile, setAuthMobile] = useState('');
+  const [authPassword, setAuthPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [newEvent, setNewEvent] = useState({ title: '', date: '', type: '', description: '' });
+  const [firebaseAvailable, setFirebaseAvailable] = useState(false);
+  const [newEvent, setNewEvent] = useState({ title: '', date: '', type: '', description: '', image: '' });
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -64,6 +64,9 @@ function App() {
     }
   }, []);
 
+  // Firebase is only attempted when user triggers auth actions to avoid
+  // Vite resolving firebase imports at startup when the SDK isn't installed.
+
   useEffect(() => {
     document.body.classList.toggle('dark', darkMode);
   }, [darkMode]);
@@ -73,12 +76,47 @@ function App() {
     localStorage.setItem('lang', lang);
   };
 
+  const handleDeleteEvent = async (event, idx) => {
+    if (!confirm('Delete this event?')) return;
+    if (event && event.id) {
+      try {
+        const mod = await import('./firebase');
+        const ok = await (mod.initFirebase ? mod.initFirebase() : false);
+        if (ok) {
+          await mod.deleteEvent(event.id);
+          const rows = await mod.fetchEventsFromFirestore();
+          setUserEvents(rows);
+          return;
+        }
+      } catch (e) {
+        alert('Failed to delete from server: ' + (e.message || e));
+      }
+    }
+
+    const updated = (userEvents || []).filter((_, i) => i !== idx);
+    setUserEvents(updated);
+    try { localStorage.setItem('userEvents', JSON.stringify(updated)); } catch (e) { /* ignore */ }
+  };
+
   return (
     <div className="min-h-screen bg-cream text-ink transition-colors duration-500 dark:bg-slate-950 dark:text-cream">
       <header className="sticky top-0 z-50 border-b border-white/20 bg-white/70 backdrop-blur-xl dark:bg-slate-950/70">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
-          <div className="font-cinzel text-lg font-semibold text-forest dark:text-amber-300">
-            {t('site.name')}
+          <div className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
+              <svg aria-hidden="true" role="img" viewBox="0 0 64 64" className="h-10 w-10" xmlns="http://www.w3.org/2000/svg">
+                <title>ॐ — Gurudev yogashram</title>
+                <defs>
+                  <linearGradient id="logoGrad" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#d97706" />
+                  </linearGradient>
+                </defs>
+                <circle cx="32" cy="32" r="30" fill="url(#logoGrad)" />
+                <text x="32" y="38" textAnchor="middle" fontSize="28" fontFamily="Noto Sans Devanagari, serif" fontWeight="700" fill="#fff">ॐ</text>
+              </svg>
+              <div className="font-cinzel text-lg font-semibold text-forest dark:text-amber-300">{t('site.name')}</div>
+            </a>
           </div>
           <div className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
@@ -87,27 +125,45 @@ function App() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2">
-            <select
-              aria-label="Language selector"
-              className="rounded-full border border-amber-400/40 bg-white/70 px-3 py-2 text-sm shadow-sm outline-none dark:bg-slate-900/70"
-              value={i18n.language}
-              onChange={(e) => changeLanguage(e.target.value)}
-            >
-              <option value="en">🇮🇳 English</option>
-              <option value="kn">🇮🇳 ಕನ್ನಡ</option>
-              <option value="mr">🇮🇳 मराठी</option>
-            </select>
-            <button
-              aria-label="Toggle theme"
-              onClick={() => setDarkMode(!darkMode)}
-              className="rounded-full border border-amber-400/40 bg-white/70 p-2.5 shadow-sm dark:bg-slate-900/70"
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button>
-          </div>
+            <div className="flex items-center gap-2">
+              
+              <select
+                aria-label="Language selector"
+                className="rounded-full border border-amber-400/40 bg-white/70 px-3 py-2 text-sm shadow-sm outline-none dark:bg-slate-900/70"
+                value={i18n.language}
+                onChange={(e) => changeLanguage(e.target.value)}
+              >
+                <option value="en">🇮🇳 English</option>
+                <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+                <option value="mr">🇮🇳 मराठी</option>
+              </select>
+              <button
+                aria-label="Toggle theme"
+                onClick={() => setDarkMode(!darkMode)}
+                className="rounded-full border border-amber-400/40 bg-white/70 p-2.5 shadow-sm dark:bg-slate-900/70"
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
+              <button aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="ml-2 rounded-md p-2 text-forest dark:text-amber-200 lg:hidden">
+                {mobileMenuOpen ? '✕' : '☰'}
+              </button>
+            </div>
+          
         </nav>
       </header>
+      {mobileMenuOpen && (
+        <div className="absolute inset-x-0 top-[60px] z-40 border-b border-white/10 bg-white/90 dark:bg-slate-950/90 lg:hidden">
+          <div className="mx-auto max-w-7xl px-4 py-4">
+            <div className="flex flex-col gap-3">
+              {navItems.map((item) => (
+                <a key={item.key} href={item.href} onClick={() => setMobileMenuOpen(false)} className="block rounded-md px-3 py-2 text-sm font-medium text-forest dark:text-amber-200">
+                  {t(item.key)}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       <main>
         <section id="home" className="relative flex min-h-screen items-center overflow-hidden">
@@ -116,7 +172,7 @@ function App() {
             alt=""
             aria-hidden="true"
             decoding="async"
-            fetchPriority="high"
+            loading="eager"
             className="absolute inset-0 h-full w-full object-cover rotate-270 origin-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/20" />
@@ -297,32 +353,113 @@ function App() {
                 <summary className="cursor-pointer font-semibold">Manage Events (admin)</summary>
                 <div className="mt-4">
                   {!isAuthenticated && (
-                    <form onSubmit={(e) => { e.preventDefault(); if (authEmail === adminEmail && authMobile === adminMobile) { setIsAuthenticated(true); } else { alert('Invalid credentials'); } }} className="mt-4 space-y-3">
-                      <input type="email" value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} placeholder="Email" className="w-full rounded-2xl border border-amber-200/40 p-3" />
-                      <input type="text" value={authMobile} onChange={(e) => setAuthMobile(e.target.value)} placeholder="Mobile" className="w-full rounded-2xl border border-amber-200/40 p-3" />
-                      <div className="flex gap-3">
-                        <button type="submit" className="rounded-full bg-amber-500 px-4 py-2 text-white">Login</button>
-                        <button type="button" onClick={() => { setAuthEmail(''); setAuthMobile(''); }} className="rounded-full border px-4 py-2">Clear</button>
-                      </div>
-                    </form>
+                    <div className="mt-4 space-y-3">
+                      <p className="text-sm">Use secure login (Firebase). If Firebase is not configured, local login will be used.</p>
+                      <form onSubmit={async (e) => {
+                        e.preventDefault();
+                        // Try to import and initialize Firebase at action time
+                        try {
+                          const mod = await import('./firebase');
+                          const ok = await (mod.initFirebase ? mod.initFirebase() : false);
+                          if (ok) {
+                            try {
+                              await mod.signIn(authEmail, authPassword);
+                              setIsAuthenticated(true);
+                              setFirebaseAvailable(true);
+                              return;
+                            } catch (err) {
+                              alert('Login failed: ' + (err.message || err));
+                              return;
+                            }
+                          }
+                        } catch (err) {
+                          // ignore and fallback
+                        }
+
+                        // fallback to local check if Firebase not available or failed
+                        if (authEmail === 'basavrajshejale7@gmail.com' && authPassword === '9483104846') {
+                          setIsAuthenticated(true);
+                        } else {
+                          alert('Invalid credentials');
+                        }
+                      }} className="grid gap-3">
+                        <input type="email" value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} placeholder="Email" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                        <input type="password" value={authPassword} onChange={(e) => setAuthPassword(e.target.value)} placeholder="Password" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                        <div className="flex gap-3">
+                          <button type="submit" className="rounded-full bg-amber-500 px-4 py-2 text-white">Login</button>
+                          <button type="button" onClick={() => { setAuthEmail(''); setAuthPassword(''); }} className="rounded-full border px-4 py-2">Clear</button>
+                        </div>
+                      </form>
+                      {firebaseAvailable && (
+                        <div className="mt-2">
+                          <button onClick={async () => {
+                            const mod = await import('./firebase');
+                            try {
+                              await mod.signUp(authEmail, authPassword);
+                              alert('Account created — now login');
+                            } catch (err) {
+                              alert('Sign-up failed: ' + (err.message || err));
+                            }
+                          }} className="mt-2 rounded-full border px-4 py-2">Sign up</button>
+                        </div>
+                      )}
+                    </div>
                   )}
 
                   {isAuthenticated && (
-                    <form onSubmit={(e) => {
+                    <form onSubmit={async (e) => {
                       e.preventDefault();
                       const ev = { ...newEvent };
+                      // Try to use Firebase if available/configured
+                      try {
+                        const mod = await import('./firebase');
+                        const ok = await (mod.initFirebase ? mod.initFirebase() : false);
+                        if (ok) {
+                          try {
+                            await mod.addEventToFirestore(ev);
+                            const rows = await mod.fetchEventsFromFirestore();
+                            setUserEvents(rows);
+                            setNewEvent({ title: '', date: '', type: '', description: '', image: '' });
+                            return;
+                          } catch (err) {
+                            alert('Failed to save event to Firestore: ' + (err.message || err));
+                          }
+                        }
+                      } catch (err) {
+                        // ignore and fallback to localStorage
+                      }
+
                       const updated = [ev, ...(userEvents || [])];
                       setUserEvents(updated);
                       localStorage.setItem('userEvents', JSON.stringify(updated));
-                      setNewEvent({ title: '', date: '', type: '', description: '' });
+                      setNewEvent({ title: '', date: '', type: '', description: '', image: '' });
                     }} className="mt-4 grid gap-3 sm:grid-cols-2">
                       <input value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} placeholder="Event title" className="w-full rounded-2xl border border-amber-200/40 p-3" />
                       <input type="date" value={newEvent.date} onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })} className="w-full rounded-2xl border border-amber-200/40 p-3" />
                       <input value={newEvent.type} onChange={(e) => setNewEvent({ ...newEvent, type: e.target.value })} placeholder="Type (e.g., Workshop)" className="w-full rounded-2xl border border-amber-200/40 p-3" />
-                      <input value={newEvent.description} onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })} placeholder="Short description" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <textarea value={newEvent.description} onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })} placeholder="Short description" className="w-full rounded-2xl border border-amber-200/40 p-3 min-h-[80px]" />
+                      <div>
+                        <label className="text-sm">Optional photo</label>
+                        <input type="file" accept="image/*" onChange={(e) => {
+                          const file = e.target.files && e.target.files[0];
+                          if (!file) return;
+                          const reader = new FileReader();
+                          reader.onload = () => setNewEvent(prev => ({ ...prev, image: reader.result }));
+                          reader.readAsDataURL(file);
+                        }} className="w-full rounded-2xl border border-amber-200/40 p-2 mt-2" />
+                        {newEvent.image && (
+                          <img src={newEvent.image} alt="preview" className="mt-2 max-h-40 w-auto rounded-md object-cover" loading="lazy" />
+                        )}
+                      </div>
                       <div className="sm:col-span-2 flex gap-3">
                         <button className="rounded-full bg-forest px-4 py-2 text-white">Add Event</button>
-                        <button type="button" onClick={() => { setIsAuthenticated(false); }} className="rounded-full border px-4 py-2">Logout</button>
+                        <button type="button" onClick={async () => {
+                          if (firebaseAvailable) {
+                            const mod = await import('./firebase');
+                            try { await mod.signOut(); } catch (e) { /* ignore */ }
+                          }
+                          setIsAuthenticated(false);
+                        }} className="rounded-full border px-4 py-2">Logout</button>
                       </div>
                     </form>
                   )}
@@ -331,13 +468,23 @@ function App() {
             </div>
 
             {((userEvents || []).length > 0) && (userEvents || []).map((event, idx) => (
-              <div key={`user-${idx}-${event.title}`} className="glass rounded-[1.5rem] p-6">
+              <div key={event.id || `user-${idx}-${event.title}`} className="glass rounded-[1.5rem] p-6">
                 <div className="flex items-center justify-between">
                   <span className="rounded-full bg-amber-100/80 px-3 py-1 text-sm text-amber-700 dark:bg-amber-500/10 dark:text-amber-200">{event.type || 'Event'}</span>
                 </div>
+                {event.image && (
+                  <div className="mt-4">
+                    <img src={event.image} alt={event.title || 'event image'} className="w-full max-h-56 object-cover rounded-md" loading="lazy" />
+                  </div>
+                )}
                 <h3 className="mt-4 font-cinzel text-xl text-forest dark:text-amber-200">{event.title}</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{event.date} — {event.description}</p>
-                <a href="#contact" className="mt-5 inline-flex rounded-full bg-forest px-5 py-2 text-sm font-semibold text-white">{t('events.register')}</a>
+                <div className="mt-5 flex items-center gap-3">
+                  <a href="#contact" className="inline-flex rounded-full bg-forest px-5 py-2 text-sm font-semibold text-white">{t('events.register')}</a>
+                  {isAuthenticated && (
+                    <button onClick={() => handleDeleteEvent(event, idx)} className="inline-flex rounded-full border border-red-400 px-4 py-2 text-sm text-red-600">Delete</button>
+                  )}
+                </div>
               </div>
             ))}
 
@@ -416,9 +563,24 @@ function App() {
           <div>
             <h4 className="font-semibold">{t('footer.social')}</h4>
             <ul className="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              <li><a href="https://wa.me/9483104846">{t('footer.socialLinks.whatsapp')}</a></li>
-              <li><a href="https://www.youtube.com/@shreegurudevashrambhaktaru6613" target="_blank" rel="noreferrer">{t('footer.socialLinks.youtube')}</a></li>
-              <li><a href="https://www.instagram.com/shree_amrutanand_swamiji_bhakt?igsh=ZW9pdWtxdmdpdWlz" target="_blank" rel="noreferrer">{t('footer.socialLinks.instagram')}</a></li>
+              <li>
+                <a href="https://wa.me/9483104846" className="flex items-center gap-2">
+                  <FaWhatsapp />
+                  <span>{t('footer.socialLinks.whatsapp')}</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@shreegurudevashrambhaktaru6613" target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                  <FaYoutube />
+                  <span>{t('footer.socialLinks.youtube')}</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/shree_amrutanand_swamiji_bhakt?igsh=ZW9pdWtxdmdpdWlz" target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                  <FaInstagram />
+                  <span>{t('footer.socialLinks.instagram')}</span>
+                </a>
+              </li>
             </ul>
           </div>
           <div>
