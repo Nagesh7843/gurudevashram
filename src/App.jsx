@@ -97,7 +97,10 @@ function App() {
         <section id="home" className="relative flex min-h-screen items-center overflow-hidden">
           <img
             src={heroImg}
-            alt="Hero background"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover rotate-270 origin-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/20" />
@@ -260,7 +263,7 @@ function App() {
             {galleryImages.map((src) => (
               <SwiperSlide key={src} className="flex justify-center">
                 <div className="relative mx-auto h-[320px] w-full max-w-[980px] overflow-hidden rounded-[2rem] sm:h-[420px] lg:h-[560px]">
-                  <img src={src} alt={t('gallery.alt')} className="h-full w-full object-cover object-center" />
+                  <img src={src} alt={t('gallery.alt')} loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
                 </div>
               </SwiperSlide>
             ))}
@@ -301,6 +304,22 @@ function App() {
               <a href="https://wa.me/9483104846" className="mt-6 inline-flex items-center gap-2 rounded-full bg-green-600 px-5 py-3 font-semibold text-white" target="_blank" rel="noreferrer">
                 <FaWhatsapp /> {t('contact.whatsapp')}
               </a>
+              <div className="mt-6">
+                <div className="w-full overflow-hidden rounded-2xl border border-amber-200/40">
+                  <div className="aspect-[16/9] w-full">
+                    <iframe
+                      title="Gurudev Ashram location"
+                      src="https://www.google.com/maps?q=5J39+Q7H+Shree+GurudevAshram+Akkalawadi+Aakalwadi+Maharashtra+416413&output=embed"
+                      width="100%"
+                      height="100%"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="h-full w-full border-0"
+                    />
+                  </div>
+                </div>
+                <a href="https://maps.app.goo.gl/c6udCWqBkvyM42K8A?g_st=aw" target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm text-amber-700">Open in Google Maps</a>
+              </div>
             </div>
             <div className="glass rounded-[2rem] p-8" data-aos="fade-left">
               <form className="space-y-4">
