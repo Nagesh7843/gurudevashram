@@ -40,12 +40,29 @@ function App() {
   const { t, i18n } = useTranslation();
   const [darkMode, setDarkMode] = useState(false);
   const [showTop, setShowTop] = useState(false);
+  const [userEvents, setUserEvents] = useState([]);
+  const [adminEmail] = useState('basavrajshejale7@gmail.com');
+  const [adminMobile] = useState('9483104846');
+  const [authEmail, setAuthEmail] = useState('');
+  const [authMobile, setAuthMobile] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [allowNoAuth, setAllowNoAuth] = useState(false);
+  const [newEvent, setNewEvent] = useState({ title: '', date: '', type: '', description: '' });
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
     const onScroll = () => setShowTop(window.scrollY > 500);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('userEvents');
+      if (stored) setUserEvents(JSON.parse(stored));
+    } catch (e) {
+      // ignore
+    }
   }, []);
 
   useEffect(() => {
@@ -276,6 +293,60 @@ function App() {
             <h2 className="mt-2 font-cinzel text-3xl text-forest dark:text-amber-200 sm:text-4xl">{t('events.title')}</h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
+            <div className="glass rounded-[1.5rem] p-6 lg:col-span-2">
+              <details className="group">
+                <summary className="cursor-pointer font-semibold">Manage Events (admin)</summary>
+                <div className="mt-4">
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" className="rounded" checked={allowNoAuth} onChange={() => setAllowNoAuth(!allowNoAuth)} />
+                    <span>Allow adding events without login (not secure)</span>
+                  </label>
+
+                  {!isAuthenticated && !allowNoAuth && (
+                    <form onSubmit={(e) => { e.preventDefault(); if (authEmail === adminEmail && authMobile === adminMobile) { setIsAuthenticated(true); } else { alert('Invalid credentials'); } }} className="mt-4 space-y-3">
+                      <input type="email" value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} placeholder="Email" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <input type="text" value={authMobile} onChange={(e) => setAuthMobile(e.target.value)} placeholder="Mobile" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <div className="flex gap-3">
+                        <button type="submit" className="rounded-full bg-amber-500 px-4 py-2 text-white">Login</button>
+                        <button type="button" onClick={() => { setAuthEmail(''); setAuthMobile(''); }} className="rounded-full border px-4 py-2">Clear</button>
+                      </div>
+                    </form>
+                  )}
+
+                  {(isAuthenticated || allowNoAuth) && (
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      const ev = { ...newEvent };
+                      const updated = [ev, ...(userEvents || [])];
+                      setUserEvents(updated);
+                      localStorage.setItem('userEvents', JSON.stringify(updated));
+                      setNewEvent({ title: '', date: '', type: '', description: '' });
+                    }} className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <input value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} placeholder="Event title" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <input type="date" value={newEvent.date} onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })} className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <input value={newEvent.type} onChange={(e) => setNewEvent({ ...newEvent, type: e.target.value })} placeholder="Type (e.g., Workshop)" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <input value={newEvent.description} onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })} placeholder="Short description" className="w-full rounded-2xl border border-amber-200/40 p-3" />
+                      <div className="sm:col-span-2 flex gap-3">
+                        <button className="rounded-full bg-forest px-4 py-2 text-white">Add Event</button>
+                        <button type="button" onClick={() => { setIsAuthenticated(false); setAllowNoAuth(false); }} className="rounded-full border px-4 py-2">Logout</button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              </details>
+            </div>
+
+            {((userEvents || []).length > 0) && (userEvents || []).map((event, idx) => (
+              <div key={`user-${idx}-${event.title}`} className="glass rounded-[1.5rem] p-6">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-amber-100/80 px-3 py-1 text-sm text-amber-700 dark:bg-amber-500/10 dark:text-amber-200">{event.type || 'Event'}</span>
+                </div>
+                <h3 className="mt-4 font-cinzel text-xl text-forest dark:text-amber-200">{event.title}</h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{event.date} — {event.description}</p>
+                <a href="#contact" className="mt-5 inline-flex rounded-full bg-forest px-5 py-2 text-sm font-semibold text-white">{t('events.register')}</a>
+              </div>
+            ))}
+
             {[
               { title: t('events.item1Title'), date: t('events.item1Date'), type: t('events.item1Type') },
               { title: t('events.item2Title'), date: t('events.item2Date'), type: t('events.item2Type') }
