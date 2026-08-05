@@ -46,7 +46,6 @@ function App() {
   const [authEmail, setAuthEmail] = useState('');
   const [authMobile, setAuthMobile] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [allowNoAuth, setAllowNoAuth] = useState(false);
   const [newEvent, setNewEvent] = useState({ title: '', date: '', type: '', description: '' });
 
   useEffect(() => {
@@ -297,12 +296,7 @@ function App() {
               <details className="group">
                 <summary className="cursor-pointer font-semibold">Manage Events (admin)</summary>
                 <div className="mt-4">
-                  <label className="flex items-center gap-2 text-sm">
-                    <input type="checkbox" className="rounded" checked={allowNoAuth} onChange={() => setAllowNoAuth(!allowNoAuth)} />
-                    <span>Allow adding events without login (not secure)</span>
-                  </label>
-
-                  {!isAuthenticated && !allowNoAuth && (
+                  {!isAuthenticated && (
                     <form onSubmit={(e) => { e.preventDefault(); if (authEmail === adminEmail && authMobile === adminMobile) { setIsAuthenticated(true); } else { alert('Invalid credentials'); } }} className="mt-4 space-y-3">
                       <input type="email" value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} placeholder="Email" className="w-full rounded-2xl border border-amber-200/40 p-3" />
                       <input type="text" value={authMobile} onChange={(e) => setAuthMobile(e.target.value)} placeholder="Mobile" className="w-full rounded-2xl border border-amber-200/40 p-3" />
@@ -313,7 +307,7 @@ function App() {
                     </form>
                   )}
 
-                  {(isAuthenticated || allowNoAuth) && (
+                  {isAuthenticated && (
                     <form onSubmit={(e) => {
                       e.preventDefault();
                       const ev = { ...newEvent };
@@ -328,7 +322,7 @@ function App() {
                       <input value={newEvent.description} onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })} placeholder="Short description" className="w-full rounded-2xl border border-amber-200/40 p-3" />
                       <div className="sm:col-span-2 flex gap-3">
                         <button className="rounded-full bg-forest px-4 py-2 text-white">Add Event</button>
-                        <button type="button" onClick={() => { setIsAuthenticated(false); setAllowNoAuth(false); }} className="rounded-full border px-4 py-2">Logout</button>
+                        <button type="button" onClick={() => { setIsAuthenticated(false); }} className="rounded-full border px-4 py-2">Logout</button>
                       </div>
                     </form>
                   )}
