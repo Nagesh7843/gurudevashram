@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+      includeAssets: ['logo.jpeg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Poojya Shri Amrutananda Mahaswamiji - Gurudev Ashram',
         short_name: 'Gurudev Ashram',
@@ -17,14 +17,14 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=192&q=80',
+            src: '/logo.jpeg',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/jpeg'
           },
           {
-            src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=512&q=80',
+            src: '/logo.jpeg',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/jpeg'
           }
         ]
       }

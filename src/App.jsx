@@ -104,17 +104,7 @@ function App() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
           <div className="flex items-center gap-3">
             <a href="/" className="flex items-center gap-3">
-              <svg aria-hidden="true" role="img" viewBox="0 0 64 64" className="h-10 w-10" xmlns="http://www.w3.org/2000/svg">
-                <title>ॐ — Gurudev yogashram</title>
-                <defs>
-                  <linearGradient id="logoGrad" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#f59e0b" />
-                    <stop offset="100%" stopColor="#d97706" />
-                  </linearGradient>
-                </defs>
-                <circle cx="32" cy="32" r="30" fill="url(#logoGrad)" />
-                <text x="32" y="38" textAnchor="middle" fontSize="28" fontFamily="Noto Sans Devanagari, serif" fontWeight="700" fill="#fff">ॐ</text>
-              </svg>
+              <img src="/logo.jpeg" alt="Gurudev Ashram Logo" className="h-10 w-10 rounded-full object-cover" />
               <div className="font-cinzel text-lg font-semibold text-forest dark:text-amber-300">{t('site.name')}</div>
             </a>
           </div>
