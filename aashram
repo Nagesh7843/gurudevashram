@@ -1,7 +1,7 @@
 
 
 
-Create a premium, modern, multilingual, fully responsive website for "Poojya Shri Amritananda Mahaswamiji – Gurudev Ashram, Balgaon". The website should support three languages: Kannada (ಕನ್ನಡ), Marathi (मराठी), and English. Users must be able to switch languages instantly using a language selector in the navigation bar. The website should automatically detect the user's browser language and allow manual switching without reloading the page.
+Create a premium, modern, multilingual, fully responsive website for "Poojya Shri Amrutananda Mahaswamiji – Gurudev Ashram, Balgaon". The website should support three languages: Kannada (ಕನ್ನಡ), Marathi (मराठी), and English. Users must be able to switch languages instantly using a language selector in the navigation bar. The website should automatically detect the user's browser language and allow manual switching without reloading the page.
 Technology Stack
 React.js (Vite)
 Tailwind CSS
@@ -52,7 +52,7 @@ Language Selector:
 Hero Section
 Full-screen background image of Gurudev Ashram.
 Display:
-Poojya Shri Amritananda Mahaswamiji
+Poojya Shri AmrUtananda Mahaswamiji
 Subtitle:
 International Yogacharya
 Spiritual Guru

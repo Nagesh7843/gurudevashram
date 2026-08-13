@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Poojya Shri Amritananda Mahaswamiji - Gurudev Ashram',
+        name: 'Poojya Shri Amrutananda Mahaswamiji - Gurudev Ashram',
         short_name: 'Gurudev Ashram',
         description: 'Luxury spiritual website for Gurudev Ashram with multilingual support.',
         theme_color: '#f4c96d',
