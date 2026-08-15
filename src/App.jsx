@@ -511,7 +511,7 @@ function App() {
                   <div className="aspect-[16/9] w-full">
                     <iframe
                       title="Gurudev Ashram location"
-                      src="https://www.google.com/maps?q=5J39+Q7H+Shree+GurudevAshram+Akkalawadi+Aakalwadi+Maharashtra+416413&output=embed"
+                      src="https://www.google.com/maps?q=5J39+Q7H+Shree+GurudevAshram+Akalawadi+Maharashtra+416413&output=embed"
                       width="100%"
                       height="100%"
                       loading="lazy"
