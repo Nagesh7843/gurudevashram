@@ -15,7 +15,7 @@
   },
   "hero": {
     "badge": "Gurudev yogashram • Akalawadi",
-    "title": "Poojya Shri Amrutananda Mahaswamiji",
+    "title": "Poojya Shri Amrutanand Mahaswamiji",
     "subtitle": "International Yogacharya • Spiritual Guru • Vice President of Jnana Yogashram",
     "learn": "Learn More",
     "visit": "Visit yogashram"
@@ -23,7 +23,12 @@
   "presence": {
     "title": "Divine Presence",
     "description": "A sanctuary of devotion, yoga, service, and spiritual awakening located in the serene landscape of Akalawadi",
-    "items": ["Meditation", "Bhajans", "Annadanam", "Yoga"]
+    "items": [
+      "Meditation",
+      "Bhajans",
+      "Annadanam",
+      "Yoga"
+    ]
   },
   "about": {
     "heading": "About Swamiji",
@@ -42,12 +47,17 @@
   },
   "biography": {
     "title": "Biography",
-    "name": "Poojya Shri Amrutananda Mahaswamiji",
+    "name": "Poojya Shri Amrutanand Mahaswamiji",
     "paragraph1": "Born on 1 June 1989 at Nandgaon, Athani Taluk, Belagavi District, he grew up in a tradition rooted in devotion, music, and spiritual discipline.",
     "paragraph2": "His lifelong passion for bhajans and kirtans, combined with focused study of Vachana literature, yoga sutras, bhakti texts, and the Gita, shaped his mission of service and awakening.",
     "paragraph3": "He joined Vijayapura Ashram, accepted Sannyasa on 6 June 2005, and later earned the titles of Pandit and Yogacharya, followed by a doctorate in Yoga in 2016.",
     "achievementsTitle": "Key Achievements",
-    "achievements": ["International Yogacharya", "Conducts discourses in Kannada, Marathi, Hindi and English", "Vice President of Jnana Yogashram", "Dedicated to yoga, social service and spiritual education"]
+    "achievements": [
+      "International Yogacharya",
+      "Conducts discourses in Kannada, Marathi, Hindi and English",
+      "Vice President of Jnana Yogashram",
+      "Dedicated to yoga, social service and spiritual education"
+    ]
   },
   "ashram": {
     "heading": "Gurudev yogashram",
@@ -80,7 +90,6 @@
     "heading": "Yoga for Mind, Body and Soul",
     "description": "A daily practice of yoga brings harmony, strength, and inner peace.",
     "benefits": [
-
       "Physical Health",
       "Mental Peace",
       "Spiritual Growth",
@@ -89,7 +98,12 @@
     "schedule": "Daily schedule: Early morning meditation, asana, pranayama and satsang",
     "onlineRegistration": "Online Registration",
     "dailyPractice": "Daily Practice",
-    "dailyPracticeItems": ["Morning Meditation", "Asana Session", "Pranayama", "Evening Satsang"]
+    "dailyPracticeItems": [
+      "Morning Meditation",
+      "Asana Session",
+      "Pranayama",
+      "Evening Satsang"
+    ]
   },
   "gallery": {
     "heading": "Gallery",

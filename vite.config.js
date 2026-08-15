@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['logo.jpeg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Poojya Shri Amrutananda Mahaswamiji - Gurudev Ashram',
+        name: 'Poojya Shri Amrutanand Mahaswamiji - Gurudev Ashram',
         short_name: 'Gurudev Ashram',
-        description: 'Luxury spiritual website for Gurudev Ashram with multilingual support.',
+        description: 'Welcome to Gurudev Ashram, Balgaon. Discover the spiritual journey, ashram life, and yoga programs under the guidance of Poojya Shri Amrutanand Mahaswamiji.',
         theme_color: '#f4c96d',
         background_color: '#0f172a',
         display: 'standalone',

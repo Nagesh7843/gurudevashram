@@ -115,30 +115,30 @@ function App() {
               </a>
             ))}
           </div>
-            <div className="flex items-center gap-2">
-              
-              <select
-                aria-label="Language selector"
-                className="rounded-full border border-amber-400/40 bg-white/70 px-3 py-2 text-sm shadow-sm outline-none dark:bg-slate-900/70"
-                value={i18n.language}
-                onChange={(e) => changeLanguage(e.target.value)}
-              >
-                <option value="en">🇮🇳 English</option>
-                <option value="kn">🇮🇳 ಕನ್ನಡ</option>
-                <option value="mr">🇮🇳 मराठी</option>
-              </select>
-              <button
-                aria-label="Toggle theme"
-                onClick={() => setDarkMode(!darkMode)}
-                className="rounded-full border border-amber-400/40 bg-white/70 p-2.5 shadow-sm dark:bg-slate-900/70"
-              >
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </button>
-              <button aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="ml-2 rounded-md p-2 text-forest dark:text-amber-200 lg:hidden">
-                {mobileMenuOpen ? '✕' : '☰'}
-              </button>
-            </div>
-          
+          <div className="flex items-center gap-2">
+
+            <select
+              aria-label="Language selector"
+              className="rounded-full border border-amber-400/40 bg-white/70 px-3 py-2 text-sm shadow-sm outline-none dark:bg-slate-900/70"
+              value={i18n.language}
+              onChange={(e) => changeLanguage(e.target.value)}
+            >
+              <option value="en">🇮🇳 English</option>
+              <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+              <option value="mr">🇮🇳 मराठी</option>
+            </select>
+            <button
+              aria-label="Toggle theme"
+              onClick={() => setDarkMode(!darkMode)}
+              className="rounded-full border border-amber-400/40 bg-white/70 p-2.5 shadow-sm dark:bg-slate-900/70"
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
+            <button aria-label="Open menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="ml-2 rounded-md p-2 text-forest dark:text-amber-200 lg:hidden">
+              {mobileMenuOpen ? '✕' : '☰'}
+            </button>
+          </div>
+
         </nav>
       </header>
       {mobileMenuOpen && (
