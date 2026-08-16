@@ -1,4 +1,5 @@
 import { FaPlus, FaImage, FaBook, FaBullhorn, FaEnvelopeOpenText, FaShieldAlt } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 const adminCards = [
   { title: 'Add Events', icon: <FaPlus />, description: 'Create or update upcoming spiritual gatherings and retreats.' },
@@ -9,6 +10,17 @@ const adminCards = [
 ];
 
 export default function Admin() {
+  useEffect(() => {
+    const robots = document.querySelector('meta[name="robots"]');
+    const previous = robots?.content;
+    if (robots) robots.content = 'noindex, nofollow';
+    document.title = 'Admin | Shree Gurudev Yogashram';
+
+    return () => {
+      if (robots && previous) robots.content = previous;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream via-white to-amber-50 p-6 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
       <div className="mx-auto max-w-7xl">

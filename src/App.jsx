@@ -71,6 +71,10 @@ function App() {
     document.body.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
+  useEffect(() => {
+    document.documentElement.lang = i18n.language?.split('-')[0] || 'en';
+  }, [i18n.language]);
+
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     localStorage.setItem('lang', lang);

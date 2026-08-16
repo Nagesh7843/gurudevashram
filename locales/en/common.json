@@ -11,18 +11,18 @@
     "contact": "Contact"
   },
   "site": {
-    "name": "Gurudev yogashram"
+    "name": "Shree Gurudev Yogashram"
   },
   "hero": {
-    "badge": "Gurudev yogashram • Akalawadi",
-    "title": "Poojya Shri Amrutanand Mahaswamiji",
+    "badge": "Shree Gurudev Yogashram • Akalwadi, Sangli",
+    "title": "Amrutanand Maharaj — Poojya Shri Amrutanand Mahaswamiji",
     "subtitle": "International Yogacharya • Spiritual Guru • Vice President of Jnana Yogashram",
     "learn": "Learn More",
     "visit": "Visit yogashram"
   },
   "presence": {
     "title": "Divine Presence",
-    "description": "A sanctuary of devotion, yoga, service, and spiritual awakening located in the serene landscape of Akalawadi",
+    "description": "Shree Gurudev Yogashram, also searched as Gurudev Ashram Akalawadi, is a sanctuary of devotion, yoga, service and spiritual awakening in Akalwadi, Taluka Jath, Sangli district.",
     "items": [
       "Meditation",
       "Bhajans",
@@ -32,7 +32,7 @@
   },
   "about": {
     "heading": "About Swamiji",
-    "paragraph": "A compassionate spiritual guide, accomplished yogacharya, and visionary social reformer whose life continues to inspire thousands through devotion, scholarship, and selfless service.",
+    "paragraph": "Known to devotees as Amrutanand Maharaj and Amrutanand Swamiji, Poojya Shri Amrutanand Mahaswamiji is a compassionate spiritual guide, accomplished Yogacharya and social reformer who inspires through devotion, scholarship and selfless service.",
     "timelineTitle": "A life dedicated to spirituality and service",
     "timeline": [
       "Born on 1 June 1989 in Nandgaon, Athani Taluk, Belagavi District",
@@ -61,8 +61,8 @@
   },
   "ashram": {
     "heading": "Gurudev yogashram",
-    "location": "Akalawadi, Taluka Jath, District Sangli",
-    "description": "A vital part of the ashram’s spiritual and service mission, combining devotion with community wellbeing.",
+    "location": "Akalwadi (Akalawadi), Taluka Jath, District Sangli",
+    "description": "Shree Gurudev Yogashram Akalwadi supports spiritual practice and community wellbeing through yoga, meditation, satsang, annadanam, education, organic farming and seva.",
     "items": [
       "Daily Yoga",
       "Monthly Shivanubhava",
@@ -108,7 +108,7 @@
   "gallery": {
     "heading": "Gallery",
     "title": "Moments of devotion and service",
-    "alt": "Yogashram gallery"
+    "alt": "Devotion, yoga and seva at Shree Gurudev Yogashram Akalwadi"
   },
   "events": {
     "heading": "Upcoming and Past Events",
