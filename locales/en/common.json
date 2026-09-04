@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About Swamiji",
     "biography": "Biography",
-    "ashram": "yogashram",
+    "ashram": "Ashram",
     "yoga": "Yoga",
     "records": "World Records",
     "events": "Events",
@@ -14,15 +14,15 @@
     "name": "Gurudev Ashram"
   },
   "hero": {
-    "badge": "Shree Gurudev Yogashram • Akalwadi, Sangli",
-    "title": "Amrutanand Maharaj — Poojya Shri Amrutanand Mahaswamiji",
+    "badge": "Spiritual Sanctuary • Akalwadi, Sangli",
+    "title": "Poojya Shri Amrutanand Mahaswamiji",
     "subtitle": "International Yogacharya • Spiritual Guru • Vice President of Jnana Yogashram",
     "learn": "Learn More",
-    "visit": "Visit yogashram"
+    "visit": "Visit Ashram"
   },
   "presence": {
     "title": "Divine Presence",
-    "description": "Shree Gurudev Yogashram, also searched as Gurudev Ashram Akalawadi, is a sanctuary of devotion, yoga, service and spiritual awakening in Akalwadi, Taluka Jath, Sangli district.",
+    "description": "A sacred sanctuary of devotion, yoga, meditation, and selfless community service in Akalwadi, Taluka Jath, Sangli under the guidance of Swamiji.",
     "items": [
       "Meditation",
       "Bhajans",
@@ -32,7 +32,7 @@
   },
   "about": {
     "heading": "About Swamiji",
-    "paragraph": "Known to devotees as Amrutanand Maharaj and Amrutanand Swamiji, Poojya Shri Amrutanand Mahaswamiji is a compassionate spiritual guide, accomplished Yogacharya and social reformer who inspires through devotion, scholarship and selfless service.",
+    "paragraph": "Poojya Shri Amrutanand Mahaswamiji is a compassionate spiritual guide, accomplished Yogacharya and inspiring social reformer dedicated to uplifting humanity through devotion, Vedic wisdom and selfless seva.",
     "timelineTitle": "A life dedicated to spirituality and service",
     "timeline": [
       "Born on 1 June 1989 in Nandgaon, Athani Taluk, Belagavi District",
@@ -60,9 +60,9 @@
     ]
   },
   "ashram": {
-    "heading": "Gurudev yogashram",
-    "location": "Akalwadi (Akalawadi), Taluka Jath, District Sangli",
-    "description": "Shree Gurudev Yogashram Akalwadi supports spiritual practice and community wellbeing through yoga, meditation, satsang, annadanam, education, organic farming and seva.",
+    "heading": "Ashram Life & Seva",
+    "location": "Akalwadi, Taluka Jath, District Sangli",
+    "description": "The Ashram supports spiritual practice and community wellbeing through daily yoga, meditation, satsang, annadanam, education, organic farming and seva.",
     "items": [
       "Daily Yoga",
       "Monthly Shivanubhava",
@@ -113,7 +113,7 @@
   "events": {
     "heading": "Upcoming and Past Events",
     "title": "Upcoming and Past Events",
-    "description": "Join the yogashram community for devotion, practice and service.",
+    "description": "Join our spiritual community for devotion, practice and service.",
     "register": "Register",
     "item1Title": "Annual Spiritual Conference",
     "item1Date": "12 Sep 2026",
@@ -124,7 +124,7 @@
   },
   "contact": {
     "heading": "Contact",
-    "address": "Shree GurudevAshram, Akalawadi, Maharashtra 416413, India",
+    "address": "Shree Gurudev Ashram, Akalwadi, Maharashtra 416413, India",
     "phone": "9483104846",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
