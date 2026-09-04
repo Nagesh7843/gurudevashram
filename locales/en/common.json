@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About Swamiji",
     "biography": "Biography",
-    "ashram": "Ashram",
+    "ashram": "Yogashram",
     "yoga": "Yoga",
     "records": "World Records",
     "events": "Events",
@@ -14,15 +14,15 @@
     "name": "Gurudev Ashram"
   },
   "hero": {
-    "badge": "Spiritual Sanctuary • Akalwadi, Sangli",
+    "badge": "Shree Gurudev Yogashram • Akalwadi, Sangli",
     "title": "Poojya Shri Amrutanand Mahaswamiji",
     "subtitle": "International Yogacharya • Spiritual Guru • Vice President of Jnana Yogashram",
     "learn": "Learn More",
-    "visit": "Visit Ashram"
+    "visit": "Visit Yogashram"
   },
   "presence": {
     "title": "Divine Presence",
-    "description": "A sacred sanctuary of devotion, yoga, meditation, and selfless community service in Akalwadi, Taluka Jath, Sangli under the guidance of Swamiji.",
+    "description": "A sacred sanctuary of devotion, yoga, meditation, and spiritual awakening at Shree Gurudev Yogashram in Akalwadi, Taluka Jath, Sangli under the guidance of Swamiji.",
     "items": [
       "Meditation",
       "Bhajans",
@@ -60,9 +60,9 @@
     ]
   },
   "ashram": {
-    "heading": "Ashram Life & Seva",
+    "heading": "Yogashram Life & Seva",
     "location": "Akalwadi, Taluka Jath, District Sangli",
-    "description": "The Ashram supports spiritual practice and community wellbeing through daily yoga, meditation, satsang, annadanam, education, organic farming and seva.",
+    "description": "Shree Gurudev Yogashram in Akalwadi supports spiritual practice and community wellbeing through daily yoga, meditation, satsang, annadanam, education, organic farming and seva.",
     "items": [
       "Daily Yoga",
       "Monthly Shivanubhava",
