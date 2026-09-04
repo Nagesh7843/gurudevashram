@@ -108,7 +108,7 @@ function App() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
           <div className="flex items-center gap-3">
             <a href="/" className="flex items-center gap-3">
-              <img src="/logo.jpeg" alt="Gurudev Ashram Logo" className="h-10 w-10 rounded-full object-cover" />
+              <img src="/logo.png" alt="Gurudev Ashram Logo" className="h-10 w-10 rounded-full object-cover" />
               <div className="font-cinzel text-lg font-semibold text-forest dark:text-amber-300">{t('site.name')}</div>
             </a>
           </div>

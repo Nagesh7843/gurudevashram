@@ -7,9 +7,9 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.jpeg', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'favicon-48x48.png', 'favicon-96x96.png', 'favicon-192x192.png', 'favicon-512x512.png', 'apple-touch-icon.png', 'logo.png', 'logo.jpeg'],
       manifest: {
-        name: 'Poojya Shri Amrutanand Mahaswamiji - Gurudev Ashram',
+        name: 'Gurudev Ashram',
         short_name: 'Gurudev Ashram',
         description: 'Welcome to Gurudev Ashram, Akalawadi. Discover the spiritual journey, ashram life, and yoga programs under the guidance of Poojya Shri Amrutanand Mahaswamiji.',
         theme_color: '#f4c96d',
@@ -17,14 +17,20 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: '/logo.jpeg',
+            src: '/favicon-192x192.png',
             sizes: '192x192',
-            type: 'image/jpeg'
+            type: 'image/png'
           },
           {
-            src: '/logo.jpeg',
+            src: '/favicon-512x512.png',
             sizes: '512x512',
-            type: 'image/jpeg'
+            type: 'image/png'
+          },
+          {
+            src: '/favicon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       }

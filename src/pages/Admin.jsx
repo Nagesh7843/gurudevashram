@@ -14,7 +14,7 @@ export default function Admin() {
     const robots = document.querySelector('meta[name="robots"]');
     const previous = robots?.content;
     if (robots) robots.content = 'noindex, nofollow';
-    document.title = 'Admin | Shree Gurudev Yogashram';
+    document.title = 'Admin | Gurudev Ashram';
 
     return () => {
       if (robots && previous) robots.content = previous;
